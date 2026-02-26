@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 // ═══════════════════════════════════════════
 // CONFIGURE YOUR SHARE CONTENT
 // ═══════════════════════════════════════════
-const SHARE_URL = 'https://seven-ai.dev' // PLACEHOLDER: Replace with real URL
+const SHARE_URL = 'https://meetseven.vercel.app/' // PLACEHOLDER: Replace with real URL
 const SHARE_TITLE = 'Seven — Your Local AI Assistant'
 const SHARE_TEXT =
   "Just discovered Seven — a fully local AI assistant that controls your PC by voice. No cloud, no API keys, 100% private. It's like Jarvis but it runs on YOUR machine. Check it out 👇"
