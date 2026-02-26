@@ -1,0 +1,179 @@
+/*
+  index.css — Global styles
+  
+  We import Tailwind CSS here. Then we add custom CSS for:
+  1. Font families (Inter + JetBrains Mono)
+  2. The animated grid background
+  3. Smooth scrolling
+  4. Custom scrollbar styling
+*/
+
+/* Tailwind v4 import — this single line loads all of Tailwind */
+@import "tailwindcss";
+
+/* ============================================
+   TAILWIND THEME CUSTOMIZATION (v4 syntax)
+   ============================================ */
+@theme {
+  /* Custom colors used throughout the site */
+  --color-seven-green: #00FF88;
+  --color-seven-dark: #0A0A0A;
+  --color-seven-card: #111111;
+  --color-seven-border: #222222;
+  --color-seven-gray: #888888;
+  --color-seven-green-dim: rgba(0, 255, 136, 0.1);
+  --color-seven-green-glow: rgba(0, 255, 136, 0.15);
+
+  /* Font families */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Custom animation for the grid background */
+  --animate-grid-move: grid-move 20s linear infinite;
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+@layer base {
+  /* Apply dark background and Inter font to the entire page */
+  html {
+    scroll-behavior: smooth;          /* Smooth scrolling for anchor links */
+    background-color: #0A0A0A;        /* Dark background */
+    color: #FFFFFF;                    /* White text */
+    font-family: 'Inter', sans-serif; /* Clean body font */
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;   /* Smoother fonts on Mac */
+    -moz-osx-font-smoothing: grayscale;    /* Smoother fonts on Firefox */
+    overflow-x: hidden;                     /* Prevent horizontal scroll */
+  }
+
+  /* Custom scrollbar — dark themed to match the page */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+  }
+
+  /* Remove default focus outline, add custom green one */
+  *:focus-visible {
+    outline: 2px solid #00FF88;
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================
+   CUSTOM ANIMATIONS
+   ============================================ */
+
+/* The grid background slowly moves upward for a cinematic feel */
+@keyframes grid-move {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50px);
+  }
+}
+
+/* Slow pulse for the "in progress" dot on the roadmap */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.4);
+  }
+}
+
+/* Gentle floating for decorative elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ============================================
+   THE ANIMATED GRID BACKGROUND
+   ============================================
+   This creates a subtle moving grid pattern.
+   It's placed on the Hero section via a CSS class.
+*/
+.grid-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.grid-background::before {
+  content: '';
+  position: absolute;
+  inset: -50px;
+  /* A repeating grid of thin lines */
+  background-image:
+    linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-move 20s linear infinite;
+}
+
+/* Radial fade so the grid fades out toward edges */
+.grid-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    #0A0A0A 70%
+  );
+}
+
+/* ============================================
+   GLASSMORPHISM CARD STYLE
+   ============================================
+   Semi-transparent background + blur + border.
+   Used for feature cards, requirement cards, etc.
+*/
+.glass-card {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(34, 34, 34, 0.8);
+  border-radius: 12px;
+}
+
+/* ============================================
+   REDUCE MOTION FOR ACCESSIBILITY
+   ============================================
+   If the user has "prefers-reduced-motion" enabled
+   in their OS, disable all animations.
+*/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
