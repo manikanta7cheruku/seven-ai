@@ -75,21 +75,21 @@ export default function Hero() {
         </motion.p>
 
         {/* ── Demo video ── */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45 }}
           className="mb-12"
         >
-          <div className="relative max-w-3xl mx-auto group">
+          <div className="relative max-w-3xl mx-auto group"> */}
             {/* Glow effect behind the video */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-seven-green/20
+            {/* <div className="absolute -inset-1 bg-gradient-to-r from-seven-green/20
               via-seven-green/5 to-seven-green/20 rounded-xl blur-xl
               opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <div className="relative rounded-xl overflow-hidden border border-seven-border
               shadow-[0_0_60px_-12px_rgba(0,255,136,0.1)]
-              bg-seven-card">
+              bg-seven-card"> */}
               {/*
                 ═══════════════════════════════════════════
                 VIDEO PLACEHOLDER
@@ -113,11 +113,11 @@ export default function Hero() {
                 />
                 ═══════════════════════════════════════════
               */}
-              <div className="aspect-video flex items-center justify-center
+              {/* <div className="aspect-video flex items-center justify-center
                 cursor-pointer group/play">
-                <div className="text-center">
+                <div className="text-center"> */}
                   {/* Play button */}
-                  <motion.div
+                  {/* <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-16 h-16 rounded-full bg-seven-green/10
@@ -140,7 +140,75 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
+        {/* ── Demo video ── */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: 0.45 }}
+  className="mb-12"
+>
+  <div className="relative max-w-3xl mx-auto group">
+
+    {/* ── Subtle glow (only on hover) ── */}
+    <div className="absolute -inset-3 rounded-2xl
+      bg-seven-green/0 group-hover:bg-seven-green/[0.03]
+      blur-2xl transition-all duration-1000 ease-out" />
+
+    {/* ── Video container ── */}
+    <div className="relative rounded-xl overflow-hidden
+      border border-seven-border/40
+      group-hover:border-seven-border/70
+      transition-all duration-500 ease-out
+      bg-seven-dark">
+
+      {/* ── Minimal top bar ── */}
+      <div className="flex items-center px-4 py-2
+        bg-seven-dark border-b border-seven-border/30">
+        <div className="flex gap-1.5">
+          <div className="w-2 h-2 rounded-full bg-seven-border/40" />
+          <div className="w-2 h-2 rounded-full bg-seven-border/40" />
+          <div className="w-2 h-2 rounded-full bg-seven-border/40" />
+        </div>
+        <span className="flex-1 text-center text-[10px] font-mono 
+          text-seven-gray/30 tracking-widest uppercase">
+          Seven Preview
+        </span>
+        <div className="w-[40px]" />
+      </div>
+
+      {/* ── Video ── */}
+      <div className="relative">
+        <video
+          src="/main.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full aspect-video object-cover
+            group-hover:brightness-[1.05]
+            transition-all duration-500 ease-out"
+        />
+
+        {/* ── Soft bottom fade ── */}
+        <div className="absolute bottom-0 left-0 right-0 h-16
+          bg-gradient-to-t from-seven-dark/50 to-transparent
+          pointer-events-none" />
+      </div>
+    </div>
+  </div>
+
+  {/* ── Caption ── */}
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.9 }}
+    className="text-center text-seven-gray/30 text-xs font-mono mt-4
+      tracking-wide"
+  >
+    Runs entirely on your machine · No data ever leaves
+  </motion.p>
+</motion.div>
 
         {/* ── Waitlist Form ── */}
         <motion.div
