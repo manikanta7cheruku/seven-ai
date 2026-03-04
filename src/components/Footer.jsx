@@ -121,7 +121,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <a
-                  href="https://github.com/PLACEHOLDER" /* PLACEHOLDER */
+                  href="https://github.com/manikanta7cheruku" /* PLACEHOLDER */
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-seven-gray hover:text-white transition-colors
@@ -135,7 +135,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://twitter.com/PLACEHOLDER" /* PLACEHOLDER */
+                  href="https://x.com/MCheruku54811" /* PLACEHOLDER */
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-seven-gray hover:text-white transition-colors
@@ -163,7 +163,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/PLACEHOLDER" /* PLACEHOLDER */
+                  href="https://www.linkedin.com/in/manikanta-cheruku/" /* PLACEHOLDER */
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-seven-gray hover:text-white transition-colors
